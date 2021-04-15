@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuControlerScript : MonoBehaviour
+public class MainMenuControllerScript : MonoBehaviour
 {
+
+
    public void play()
     {
         SceneManager.LoadScene("SampleScene");
     }
 
+
     public void option()
     {
-        //to option scene here
+        SceneManager.LoadScene("LeSettingsScene");
     }
 
     public void exitApp()
     {
         Application.Quit();
     }
-
 }
