@@ -155,6 +155,7 @@ MonoBehaviour:
   mapTile: {fileID: 3357636268480248403, guid: 7fa84712ff6b5f3439bb347f08cfc333, type: 3}
   mapHauteur: 10
   mapLargeur: 10
+  couleurChemin: {r: 0.5188679, g: 0.3225588, b: 0.11503203, a: 1}
 --- !u!4 &788771558
 Transform:
   m_ObjectHideFlags: 0
