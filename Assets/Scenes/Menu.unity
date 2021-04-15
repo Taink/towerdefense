@@ -348,7 +348,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1411630020}
-  - {fileID: 2010618693}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -529,7 +528,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -168}
+  m_AnchoredPosition: {x: 0, y: -186}
   m_SizeDelta: {x: -643.11, y: -513.58}
   m_Pivot: {x: 0.49999997, y: 0.5}
 --- !u!114 &915598220
@@ -662,7 +661,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.010009766, y: -81.40001}
+  m_AnchoredPosition: {x: -0.010009766, y: -94}
   m_SizeDelta: {x: -643.13, y: -513.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1053557977
@@ -923,6 +922,7 @@ RectTransform:
   - {fileID: 263567884}
   - {fileID: 915598219}
   - {fileID: 1053557976}
+  - {fileID: 2010618693}
   m_Father: {fileID: 589309631}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -942,7 +942,7 @@ GameObject:
   - component: {fileID: 1578614320}
   - component: {fileID: 1578614319}
   m_Layer: 0
-  m_Name: MainMenuControler
+  m_Name: MainMenuController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1010,7 +1010,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.88461196, g: 0.9184788, b: 0.9716981, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1069,7 +1069,7 @@ GameObject:
   - component: {fileID: 2010618695}
   - component: {fileID: 2010618694}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Main Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1082,17 +1082,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010618692}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 589309631}
-  m_RootOrder: 1
+  m_Father: {fileID: 1411630020}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 143}
-  m_SizeDelta: {x: 372.46, y: 136.9}
+  m_AnchoredPosition: {x: 0, y: 133}
+  m_SizeDelta: {x: 358.12, y: 137.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2010618694
 MonoBehaviour:
@@ -1114,7 +1114,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Piece Jointe Sainson 4 - Electric Boogaloo
+  m_text: Piece Jointe Saison 4 - Electric Boogaloo
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
