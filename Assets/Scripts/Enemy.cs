@@ -15,6 +15,11 @@ public class Enemy : MonoBehaviour
     private GameObject targetTile;
 
 
+    private void Awake()
+    {
+        Enemies.addEnemy(gameObject);
+    }
+
     private void Start()
     {
         generateEnemy();
@@ -24,6 +29,21 @@ public class Enemy : MonoBehaviour
     private void generateEnemy()
     {
         targetTile = MapGenerator.getStartTile();
+    }
+
+    public void takeDamage(float dmg)
+    {
+        health -= dmg;
+        if(health<= 0)
+        {
+            die();
+        }
+    }
+
+    private void die()
+    {
+        Enemies.supressEnemy(gameObject);
+        Destroy(this.transform.gameObject);
     }
 
     //Déplace l'objet vers la case définie comme "objectif" (targetTile)
