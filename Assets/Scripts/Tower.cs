@@ -10,7 +10,7 @@ public class Tower : MonoBehaviour
 
     private float nextTimeShoot;
 
-    private GameObject target;
+    public GameObject target;
 
     // Start is called before the first frame update
     private void Start()
@@ -23,14 +23,19 @@ public class Tower : MonoBehaviour
     {
         GameObject currentNearestEnemy = null;
         float distance = Mathf.Infinity;
+        
         foreach(GameObject enemy in Enemies.getEnemies())
         {
-            float distanceCheck = (this.transform.position - enemy.transform.position).magnitude;
-            if(distanceCheck < distance)
+            if(enemy != null)
             {
-                distance = distanceCheck;
-                currentNearestEnemy = enemy;
+                float distanceCheck = (this.transform.position - enemy.transform.position).magnitude;
+                if(distanceCheck < distance)
+                {
+                    distance = distanceCheck;
+                    currentNearestEnemy = enemy;
+                }
             }
+            
         }
 
         if(distance <= range)
@@ -43,7 +48,7 @@ public class Tower : MonoBehaviour
         }
     }
 
-    private void shoot()
+    protected virtual void shoot()
     {
             Enemy enemyScript = target.GetComponent<Enemy>();
             enemyScript.takeDamage(damage);
@@ -63,4 +68,9 @@ public class Tower : MonoBehaviour
             }    
         }
     }
+
+    //public static GameObject getTarget()
+    //{
+        //return target;
+    //}
 }
