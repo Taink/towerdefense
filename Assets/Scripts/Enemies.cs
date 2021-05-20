@@ -11,6 +11,7 @@ public class Enemies : MonoBehaviour
         return enemies;
     }
 
+
     public static void addEnemy(GameObject enemy)
     {
         enemies.Add(enemy);

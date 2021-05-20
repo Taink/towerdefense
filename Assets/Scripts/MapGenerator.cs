@@ -9,10 +9,11 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private int mapHauteur;
     [SerializeField] private int mapLargeur;
 
-    private static List<GameObject> mapTiles = new List<GameObject>();
-    private static List<GameObject> chemin = new List<GameObject>();
+    public static List<GameObject> mapTiles = new List<GameObject>();
+    public static List<GameObject> chemin = new List<GameObject>();
     private static GameObject startTile;
     private static GameObject endTile;
+
 
     private bool reachedX = false;
     private bool reachedY = false;
@@ -81,7 +82,7 @@ public class MapGenerator : MonoBehaviour
         currentTile = mapTiles[nextIndex];
     }
 
-    public static List<GameObject> getMapTiles()
+    public static List<GameObject> getMap()
     {
         return mapTiles;
     }
@@ -108,9 +109,9 @@ public class MapGenerator : MonoBehaviour
     private void generateMap()
     {
 
-        for (int y = 0; y <mapHauteur; y++)
+        for (int y = 0 -(mapHauteur/2); y <mapHauteur - (mapHauteur / 2); y++)
         {
-            for (int x = 0; x < mapLargeur; x++)
+            for (int x = 0 - (mapLargeur / 2); x < mapLargeur - (mapLargeur / 2); x++)
             {
                 GameObject newTile = Instantiate(mapTile);
 
