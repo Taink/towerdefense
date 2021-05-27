@@ -6,7 +6,11 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField]
     private float health; //vie de l'ennemi
-
+    [SerializeField]
+    private float armor; //resistance physique
+    [SerializeField]
+    private float magicRes;//resistance magique
+    //resistances : 0 = 0% | 1 = 15% | 2 = 35% | 3 = 60%
     [SerializeField]
     private float movSpeed; //vitesse de déplacement
     private int killReward; //quantité d'or donnée à la mort
@@ -31,8 +35,44 @@ public class Enemy : MonoBehaviour
         targetTile = MapGenerator.getStartTile();
     }
 
-    public void takeDamage(float dmg)
+    public void takeDamage(float dmg, int dmgType)
     {
+        if (dmgType == 0)
+        {
+            switch (armor)
+            {
+                case 1:
+                    dmg = (float)(dmg * 0.85);
+                    break;
+                case 2:
+                    dmg = (float)(dmg * 0.65);
+                    break;
+                case 3:
+                    dmg = (float)(dmg * 0.4);
+                    break;
+                default:
+                    break;
+
+            }
+        }
+        else if (dmgType == 1)
+        {
+            switch (magicRes)
+            {
+                case 1:
+                    dmg = (float)(dmg * 0.85);
+                    break;
+                case 2:
+                    dmg = (float)(dmg * 0.65);
+                    break;
+                case 3:
+                    dmg = (float)(dmg * 0.4);
+                    break;
+                default:
+                    break;
+
+            }
+        }
         health -= dmg;
         if(health<= 0)
         {

@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  armor: 1
+  magicRes: 0
   movSpeed: 0.5
 --- !u!61 &-5975315165965984672
 BoxCollider2D:

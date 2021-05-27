@@ -214,12 +214,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 5
-  damage: 15
   atkSpeed: 0.75
-  target: {fileID: 0}
-  arrow: {fileID: -2048200183274179457, guid: f1ead4aa2e04fd642818bfdff39e8d58, type: 3}
+  bullet: {fileID: -2048200183274179457, guid: f1ead4aa2e04fd642818bfdff39e8d58, type: 3}
   barrel: {fileID: 56503673}
   pivot: {fileID: 913329095}
+  target: {fileID: 0}
 --- !u!114 &1398071584
 MonoBehaviour:
   m_ObjectHideFlags: 0

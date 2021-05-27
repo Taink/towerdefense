@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    [SerializeField]private float range;
     [SerializeField] private float damage;
+    [SerializeField]private float range;    
     [SerializeField] private float atkSpeed; // Temps en secondes entre chaque attaque 
-
     private float nextTimeShoot;
 
+    public GameObject bullet;
+    public Transform barrel;
+    public Transform pivot;
     public GameObject target;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -50,8 +53,9 @@ public class Tower : MonoBehaviour
 
     protected virtual void shoot()
     {
-            Enemy enemyScript = target.GetComponent<Enemy>();
-            enemyScript.takeDamage(damage);
+            GameObject newBullet = Instantiate(bullet, barrel.position, pivot.rotation);
+            Bullet bulletScript = newBullet.GetComponent<Bullet>();
+            bulletScript.updateTarget(target);
 
     }
 
@@ -69,8 +73,5 @@ public class Tower : MonoBehaviour
         }
     }
 
-    //public static GameObject getTarget()
-    //{
-        //return target;
-    //}
+    
 }
