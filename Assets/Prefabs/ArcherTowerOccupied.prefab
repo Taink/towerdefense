@@ -213,8 +213,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b4e30d91d9f21438f9235bcc848093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
-  atkSpeed: 0.75
+  damage: 15
+  range: 4
+  atkSpeed: 1
   bullet: {fileID: -2048200183274179457, guid: f1ead4aa2e04fd642818bfdff39e8d58, type: 3}
   barrel: {fileID: 56503673}
   pivot: {fileID: 913329095}
