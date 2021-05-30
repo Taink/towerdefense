@@ -6,5 +6,23 @@ public class Card : MonoBehaviour
 {
     private string unitName;
     //[SerializeField] GameObject unitée;
-    private Tower unitée;
+    [SerializeField] Tower unit;
+
+
+    public Card()
+    {
+        //unitName = unit.name;
+    }
+
+    private void OnMouseOver()
+    {
+        Debug.Log(unitName + " est survolé");
+    }
+
+    private void OnMouseExit()
+    {
+        Debug.Log(unitName + " n'est plus survolé");   
+    }
+
+
 }
