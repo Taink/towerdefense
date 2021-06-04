@@ -2,76 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : MonoBehaviour
+public abstract class Tower : MonoBehaviour
 {
-    [SerializeField] private float damage;
-    [SerializeField]private float range;    
-    [SerializeField] private float atkSpeed; // Temps en secondes entre chaque attaque 
-    private float nextTimeShoot;
+    private string towerName;
+    private string unitDescription;
 
-    public GameObject bullet;
-    public Transform barrel;
-    public Transform pivot;
-    public GameObject target;
-
-
-    // Start is called before the first frame update
-    private void Start()
+    public Tower(string unitName, string desc)
     {
-        nextTimeShoot = Time.time;
+        this.towerName = name;
+        this.unitDescription = desc;
     }
 
-    // Update is called once per frame
-    private void updateNearestEnemy()
+    public string getName()
     {
-        GameObject currentNearestEnemy = null;
-        float distance = Mathf.Infinity;
-        
-        foreach(GameObject enemy in Enemies.getEnemies())
-        {
-            if(enemy != null)
-            {
-                float distanceCheck = (this.transform.position - enemy.transform.position).magnitude;
-                if(distanceCheck < distance)
-                {
-                    distance = distanceCheck;
-                    currentNearestEnemy = enemy;
-                }
-            }
-            
-        }
-
-        if(distance <= range)
-        {
-            target = currentNearestEnemy;
-        }
-        else
-        {
-            target = null;
-        }
+        return this.towerName;
     }
 
-    protected virtual void shoot()
+    public string getDescription()
     {
-            GameObject newBullet = Instantiate(bullet, barrel.position, pivot.rotation);
-            Bullet bulletScript = newBullet.GetComponent<Bullet>();
-            bulletScript.updateTarget(target);
-
+        return this.unitDescription;
     }
-
-    private void Update()
-    {
-        updateNearestEnemy();
-        
-        if (Time.time >= nextTimeShoot)
-        {
-            if (target != null)
-            {
-                shoot();
-                nextTimeShoot = Time.time + atkSpeed;
-            }    
-        }
-    }
-
-    
 }

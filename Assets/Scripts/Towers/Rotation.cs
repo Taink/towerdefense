@@ -7,7 +7,7 @@ public class Rotation : MonoBehaviour
     public Transform pivot;
     public Transform barrel;
 
-    public Tower tower;
+    public DefenseTowers tower;
 
     private void Update()
     {
