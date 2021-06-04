@@ -7,7 +7,7 @@ public abstract class Tower : MonoBehaviour
     private string towerName;
     private string unitDescription;
 
-    public Tower(string unitName, string desc)
+    protected void init(string unitName, string desc)
     {
         this.towerName = name;
         this.unitDescription = desc;
