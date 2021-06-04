@@ -14,9 +14,9 @@ public abstract class DefenseTowers : Tower
     private Transform pivot;
     public GameObject target;
 
-    public DefenseTowers(string unitName, string unitDesc,float dmg, float rng, float atkSp)
-        : base(unitName, unitDesc)
+    protected void init(string unitName, string unitDesc,float dmg, float rng, float atkSp)
     {
+        base.init(unitName, unitDesc)
         this.damage = dmg;
         this.range = rng;
         this.atkSpeed = atkSp;
