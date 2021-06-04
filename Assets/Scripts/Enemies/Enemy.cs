@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField]
     private float health; //vie de l'ennemi
+    public HealthBar healthbar; // barre de vie de l'ennemi
+
     [SerializeField]
     private float armor; //resistance physique
     [SerializeField]
@@ -17,7 +19,6 @@ public class Enemy : MonoBehaviour
     private int damage; //dégats lorsqu'il sort de la carte
 
     private GameObject targetTile;
-
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class Enemy : MonoBehaviour
     //Méthode de génération : défini la première case comme la StartTile, définie dans MapGenerator
     private void generateEnemy()
     {
+        healthbar.SetMaxHealth((int)health);
         targetTile = MapGenerator.getStartTile();
     }
 
@@ -74,6 +76,8 @@ public class Enemy : MonoBehaviour
             }
         }
         health -= dmg;
+        healthbar.SetHealth((int)health);
+
         if(health<= 0)
         {
             die();
