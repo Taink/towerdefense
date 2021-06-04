@@ -10,13 +10,13 @@ public abstract class DefenseTowers : Tower
     private float nextTimeShoot;
 
     [SerializeField] private GameObject bullet;
-    private Transform barrel;
-    private Transform pivot;
+    public Transform barrel;
+    public Transform pivot;
     public GameObject target;
 
     protected void init(string unitName, string unitDesc,float dmg, float rng, float atkSp)
     {
-        base.init(unitName, unitDesc)
+        base.init(unitName, unitDesc);
         this.damage = dmg;
         this.range = rng;
         this.atkSpeed = atkSp;

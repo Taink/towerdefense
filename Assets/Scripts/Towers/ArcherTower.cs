@@ -10,5 +10,5 @@ public class ArcherTower : DefenseTowers
         base.init("Archer", "Un elfe aux longues oreilles qui est passionné de la flèche. A chaque tir réussi, il crie 'LEZGONGE'.", 15, 4, 1);
     }
 
-    private void Start() => base.Start();
+    //private void Start() => base.Start();
 }
