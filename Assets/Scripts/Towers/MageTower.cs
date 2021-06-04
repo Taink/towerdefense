@@ -9,4 +9,7 @@ public class MageTower : DefenseTowers
     {
 
     }
+
+
+    private void Start() => base.Start();
 }

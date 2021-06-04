@@ -10,5 +10,7 @@ public class ArcherTower : DefenseTowers
     {
         
     }
-    
+
+
+    private void Start() => base.Start();
 }
