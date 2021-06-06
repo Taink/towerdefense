@@ -9,19 +9,17 @@ public class Card : MonoBehaviour
     [SerializeField] Tower unit;
 
 
-    public Card()
-    {
-        //unitName = unit.name;
-    }
+  
 
     private void OnMouseOver()
     {
-        Debug.Log(unitName + " est survolé");
+        const string phrase = " est survolé";
+        Debug.Log(unit.getName() + phrase);
     }
 
     private void OnMouseExit()
     {
-        Debug.Log(unitName + " n'est plus survolé");   
+        Debug.Log(unit.getName() + " n'est plus survolé");   
     }
 
 
