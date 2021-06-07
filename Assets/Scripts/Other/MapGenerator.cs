@@ -1,26 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class MapGenerator : MonoBehaviour
 {
     //Variables
-    public GameObject mapTile;
-    [SerializeField] private int mapHauteur;
-    [SerializeField] private int mapLargeur;
+    [SerializeField] private Tilemap tilemap;
+    [SerializeField] private Tile defaultTile;
+    [SerializeField] private int mapHeight;
+    [SerializeField] private int mapWidth;
 
-    public static List<GameObject> mapTiles = new List<GameObject>();
-    public static List<GameObject> chemin = new List<GameObject>();
-    private static GameObject startTile;
-    private static GameObject endTile;
-
-
-    private bool reachedX = false;
-    private bool reachedY = false;
-
-    private GameObject currentTile;
-    private int currentIndex;
-    private int nextIndex;
+    private static Vector3Int startCoords;
+    private static Vector3Int endCoords;
 
     //variable de couleur modifiable sur Unity
     public Color couleurChemin;
@@ -31,38 +23,12 @@ public class MapGenerator : MonoBehaviour
         generateMap();
     }
 
-    //Renvoie les cases de la ligne du haut
-    private List<GameObject> getTopEdgeTiles()
-    {
-        List<GameObject> edgeTile = new List<GameObject>();
-
-        for (int i = mapLargeur * (mapHauteur -1);  i < mapHauteur * mapLargeur; i++)
-        {
-            edgeTile.Add(mapTiles[i]);
-        }
-
-        return edgeTile;
-    }
-
-    //Renvoie les cases de la ligne du bas
-    private List<GameObject> getBottomEdgeTiles()
-    {
-        List<GameObject> edgeTile = new List<GameObject>();
-
-        for (int i = 0; i < mapLargeur * mapLargeur; i++)
-        {
-            edgeTile.Add(mapTiles[i]);
-        }
-
-        return edgeTile;
-    }
-
-    //Méthodes permettant de créer le chemin
+    /*//Méthodes permettant de créer le chemin
     private void moveDown()
     {
         chemin.Add(currentTile);
         currentIndex = mapTiles.IndexOf(currentTile);
-        nextIndex = currentIndex - mapLargeur;
+        nextIndex = currentIndex - mapWidth;
         currentTile = mapTiles[nextIndex];
     }
 
@@ -90,97 +56,33 @@ public class MapGenerator : MonoBehaviour
     public static List<GameObject> getChemin()
     {
         return chemin;
+    }*/
+
+    public static Vector3Int getStartCoords()
+    {
+        return startCoords;
     }
 
-    public static GameObject getStartTile()
+    public static Vector3Int getEndCoords()
     {
-        return startTile;
-    }
-
-    public static GameObject getEndTile()
-    {
-        return endTile;
+        return endCoords;
     }
 
     /*Méthode principale :
-     * Génère la map
-     * Place le chemin
+     * Génère un rectangle correspondant aux dimensions
+     * Génère un départ et une arrivée
     */
     private void generateMap()
     {
-
-        for (int y = 0 -(mapHauteur/2); y <mapHauteur - (mapHauteur / 2); y++)
+        for (int y = 0; y < mapHeight; y++)
         {
-            for (int x = 0 - (mapLargeur / 2); x < mapLargeur - (mapLargeur / 2); x++)
+            for (int x = 0; x < mapWidth; x++)
             {
-                GameObject newTile = Instantiate(mapTile);
-
-                mapTiles.Add(newTile);
-
-                newTile.transform.position = new Vector2(x,y);
+                tilemap.SetTile(new Vector3Int(x, y, 0), defaultTile);
             }
         }
 
-        List<GameObject> topEdgeTiles = getTopEdgeTiles();
-        List<GameObject> botEdgeTiles = getBottomEdgeTiles();
-
-
-
-        int rand1 = Random.Range(0, mapLargeur - 1);
-        int rand2 = Random.Range(0, mapLargeur - 1);
-
-        startTile = topEdgeTiles[rand1];
-        endTile = botEdgeTiles[rand2];
-
-        currentTile = startTile;
-        moveDown();
-        int debugLoop = 0;
-
-        while(reachedX == false)
-        {
-            debugLoop++;
-            if(debugLoop > mapHauteur * mapLargeur)
-            {
-                Debug.Log("Boucle trop longue. Execution interrompue.");
-                break;
-            }
-            if(currentTile.transform.position.x > endTile.transform.position.x)
-            {
-                moveLeft();
-            }
-            else if (currentTile.transform.position.x < endTile.transform.position.x)
-            {
-                moveRight();
-            }
-            else
-            {
-                reachedX = true;
-            }
-        }
-        debugLoop = 0;
-        while (reachedY == false)
-        {
-            debugLoop++;
-            if (debugLoop > mapHauteur * mapLargeur)
-            {
-                Debug.Log("Boucle trop longue. Execution interrompue.");
-                break;
-            }
-
-            if (currentTile.transform.position.y > endTile.transform.position.y)
-            {
-                moveDown();
-            }
-            else
-            {
-                reachedY = true;
-            }
-
-        }
-        chemin.Add(endTile);
-        foreach(GameObject obj in chemin)
-        {
-            obj.GetComponent<SpriteRenderer>().color = couleurChemin;
-        }
+        startCoords = new Vector3Int(Random.Range(0, mapWidth - 1), 0, 0);
+        endCoords = new Vector3Int(Random.Range(0, mapWidth - 1), mapHeight - 1, 0);
     }
 }

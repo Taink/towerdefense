@@ -28,8 +28,8 @@ public class Bullet : MonoBehaviour
     }
     public void dmgEnemy()
     {
-        Enemy enemyScript = target.GetComponent<Enemy>();
-        enemyScript.takeDamage(damage, dmgType);
+        EnemyAI enemyAIScript = target.GetComponent<EnemyAI>();
+        enemyAIScript.takeDamage(damage, dmgType);
     }
 
 }

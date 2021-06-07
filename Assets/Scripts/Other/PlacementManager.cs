@@ -33,11 +33,7 @@ public class PlacementManager : MonoBehaviour
 
         if (hit.collider != null)
         {
-            if (MapGenerator.mapTiles.Contains(hit.collider.gameObject) & !MapGenerator.chemin.Contains(hit.collider.gameObject))
-            {
-                hoverTile = hit.collider.gameObject;
-            }
-            
+            hoverTile = hit.collider.gameObject;
         }
     }
 
@@ -57,7 +53,7 @@ public class PlacementManager : MonoBehaviour
     }
     public void placeBuilding()
     {
-        if(hoverTile != null & !checkTower())
+        if (hoverTile != null & !checkTower())
         {
             GameObject newTowerObject = Instantiate(basicTowerObject);
             newTowerObject.layer = LayerMask.NameToLayer("Tower");
