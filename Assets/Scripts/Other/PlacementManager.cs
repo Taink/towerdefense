@@ -31,7 +31,7 @@ public class PlacementManager : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(mousePos, new Vector2(0, 0), 0.1f, mask, -100, 100);
 
-        if (hit.collider != null)
+        if (hit.collider)
         {
             hoverTile = hit.collider.gameObject;
         }
@@ -44,7 +44,7 @@ public class PlacementManager : MonoBehaviour
         Vector2 mousePos = getMousePos();
         RaycastHit2D hit = Physics2D.Raycast(mousePos, new Vector2(0, 0), 0.1f, towerMask, -100, 100);
 
-        if(hit.collider != null)
+        if(hit.collider)
         {
             towerOnSlot = true;
         }
@@ -53,7 +53,7 @@ public class PlacementManager : MonoBehaviour
     }
     public void placeBuilding()
     {
-        if (hoverTile != null & !checkTower())
+        if (hoverTile & !checkTower())
         {
             GameObject newTowerObject = Instantiate(basicTowerObject);
             newTowerObject.layer = LayerMask.NameToLayer("Tower");
@@ -81,7 +81,7 @@ public class PlacementManager : MonoBehaviour
     public void endBuilding()
     {
         isBuilding = false;
-        if(dummyPlacement != null)
+        if(dummyPlacement)
         {
             Destroy(dummyPlacement);
         }
@@ -92,10 +92,10 @@ public class PlacementManager : MonoBehaviour
         
         if (isBuilding == true)
         {
-            if(dummyPlacement != null)
+            if(dummyPlacement)
             {
                 getHoverTile();
-                if(hoverTile != null)
+                if(hoverTile)
                 {
                     dummyPlacement.transform.position = hoverTile.transform.position;
                 }
