@@ -8,12 +8,14 @@ public class HandManager : MonoBehaviour
     [SerializeField] private GameObject card1;
     [SerializeField] private GameObject card2;
     private List<GameObject> cardHand;
+    [SerializeField] private List<GameObject> cardPlaces;
     // Start is called before the first frame update
     void Start()
     {
-        
 
-        for (int i = 0; i<MaxCardInHand; i++)
+        //Vector3 vec = cardPlaces[1].transform.position;
+
+        /*for (int i = 0; i<MaxCardInHand; i++)
         {
             if (Random.Range(0, 1) == 0)
             {
@@ -23,12 +25,12 @@ public class HandManager : MonoBehaviour
             {
                 cardHand.Add(card2);
             }
-        }
+        }*/
 
-        foreach (GameObject card in cardHand){
-            Instantiate(card);
+        for (int i = 0; i < MaxCardInHand; i++)
+        {
+            Instantiate(card1, cardPlaces[i].transform.position, Quaternion.identity);
         }
-
     }
 
     // Update is called once per frame
