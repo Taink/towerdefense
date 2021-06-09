@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c157e3b317e52e4b9716588d4d2bee1, type: 3}
   m_Name: Tile1
   m_EditorClassIdentifier: 
-  flags: 
+  flags: 02000000
