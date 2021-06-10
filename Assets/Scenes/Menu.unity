@@ -375,6 +375,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263567883}
   m_CullTransparentMesh: 1
+--- !u!4 &277659363 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 672092606, guid: acc493afc40104c46918213cac9f4a69, type: 3}
+  m_PrefabInstance: {fileID: 1305188463}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &519949661 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1980899763, guid: acc493afc40104c46918213cac9f4a69, type: 3}
+  m_PrefabInstance: {fileID: 1305188463}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &589309627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,11 +1042,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3071146809999006971, guid: acc493afc40104c46918213cac9f4a69, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.971567
+      value: -14.15
       objectReference: {fileID: 0}
     - target: {fileID: 3071146809999006971, guid: acc493afc40104c46918213cac9f4a69, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.2792017
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 3071146809999006971, guid: acc493afc40104c46918213cac9f4a69, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1073,30 +1083,25 @@ PrefabInstance:
     - target: {fileID: 3382917676929180631, guid: acc493afc40104c46918213cac9f4a69, type: 3}
       propertyPath: pivot
       value: 
-      objectReference: {fileID: 672092606}
+      objectReference: {fileID: 277659363}
     - target: {fileID: 3382917676929180631, guid: acc493afc40104c46918213cac9f4a69, type: 3}
       propertyPath: barrel
       value: 
-      objectReference: {fileID: 1980899763}
+      objectReference: {fileID: 519949661}
     - target: {fileID: 3674770513312172174, guid: acc493afc40104c46918213cac9f4a69, type: 3}
       propertyPath: pivot
       value: 
-      objectReference: {fileID: 672092606}
+      objectReference: {fileID: 0}
     - target: {fileID: 3674770513312172174, guid: acc493afc40104c46918213cac9f4a69, type: 3}
       propertyPath: barrel
       value: 
-      objectReference: {fileID: 1980899763}
+      objectReference: {fileID: 0}
     - target: {fileID: 3674770513312172174, guid: acc493afc40104c46918213cac9f4a69, type: 3}
       propertyPath: bullet
       value: 
       objectReference: {fileID: 253937879}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acc493afc40104c46918213cac9f4a69, type: 3}
---- !u!4 &1305188464 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3071146809999006971, guid: acc493afc40104c46918213cac9f4a69, type: 3}
-  m_PrefabInstance: {fileID: 1305188463}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1411630019
 GameObject:
   m_ObjectHideFlags: 0
