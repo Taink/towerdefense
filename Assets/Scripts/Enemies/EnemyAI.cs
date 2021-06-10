@@ -13,6 +13,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private float magicRes;//resistance magique
     //resistances : 0 = 0% | 1 = 15% | 2 = 35% | 3 = 60%
+    // -> pourquoi ne pas le stocker sous une forme de pourcentage au lieu de passer via des nombres?
+    //    qqch comme 0.6 pour 60% de résistance magique
     [SerializeField]
     private float movSpeed; //vitesse de déplacement
     private int _killReward; //quantité d'or donnée à la mort
