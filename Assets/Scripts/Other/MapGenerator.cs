@@ -9,6 +9,9 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private TileBase borderTile;
     [SerializeField] private int mapHeight;
     [SerializeField] private int mapWidth;
+    [SerializeField] private Transform camera;
+    [SerializeField] private Transform startPoint;
+    [SerializeField] private Transform endPoint;
 
     private static Vector3Int startCoords;
     private static Vector3Int endCoords;
@@ -17,6 +20,13 @@ public class MapGenerator : MonoBehaviour
     private void Start()
     {
         generateMap();
+        SnapCamToGrid();
+    }
+
+    private void SnapCamToGrid()
+    {
+        var curPos = transform.position;
+        camera.position = new Vector3(curPos.x + mapWidth / 2f, curPos.y + mapHeight / 2f, camera.position.z);
     }
 
     public static Vector3Int getStartCoords()
@@ -48,7 +58,10 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
-        startCoords = new Vector3Int(Random.Range(0, mapWidth - 1), 0, 0);
-        endCoords = new Vector3Int(Random.Range(0, mapWidth - 1), mapHeight - 1, 0);
+        startCoords = new Vector3Int(Random.Range(0, mapWidth - 1), mapHeight - 1, 0);
+        endCoords = new Vector3Int(Random.Range(0, mapWidth - 1), 0, 0);
+
+        startPoint.localPosition = startCoords;
+        endPoint.localPosition = endCoords;
     }
 }
