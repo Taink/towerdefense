@@ -9,17 +9,29 @@ public class Card : MonoBehaviour
     [SerializeField] Tower unit;
 
 
-  
 
-    private void OnMouseOver()
+    private void Update()
     {
-        const string phrase = " est survolé";
-        Debug.Log(unit.getName() + phrase);
+
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+            if (hit.collider != null)
+            {
+                Debug.Log(hit.collider.gameObject.name);
+                //hit.collider.attachedRigidbody.AddForce(Vector2.up);
+            }
+        }
+
     }
 
-    private void OnMouseExit()
+    private void Start()
     {
-        Debug.Log(unit.getName() + " n'est plus survolé");   
+        
     }
 
 
