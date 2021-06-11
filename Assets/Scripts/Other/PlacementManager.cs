@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlacementManager : MonoBehaviour
 {
+    [SerializeField] private Tilemap tilemap;
     public GameObject basicTowerObject;
     private GameObject dummyPlacement;
     public Camera cam;
-    private GameObject hoverTile;
+    private Vector3? hoverTilePos;
 
     public LayerMask mask;
     public LayerMask towerMask;
@@ -25,22 +26,6 @@ public class PlacementManager : MonoBehaviour
         return cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
-    public void getHoverTile()
-    {
-        Vector2 mousePos = getMousePos();
-
-        RaycastHit2D hit = Physics2D.Raycast(mousePos, new Vector2(0, 0), 0.1f, mask, -100, 100);
-
-        if (hit.collider != null)
-        {
-            if (MapGenerator.mapTiles.Contains(hit.collider.gameObject) & !MapGenerator.chemin.Contains(hit.collider.gameObject))
-            {
-                hoverTile = hit.collider.gameObject;
-            }
-            
-        }
-    }
-
 
     public bool checkTower()
     {
@@ -48,7 +33,7 @@ public class PlacementManager : MonoBehaviour
         Vector2 mousePos = getMousePos();
         RaycastHit2D hit = Physics2D.Raycast(mousePos, new Vector2(0, 0), 0.1f, towerMask, -100, 100);
 
-        if(hit.collider != null)
+        if(hit.collider)
         {
             towerOnSlot = true;
         }
@@ -57,11 +42,11 @@ public class PlacementManager : MonoBehaviour
     }
     public void placeBuilding()
     {
-        if(hoverTile != null & !checkTower())
+        if (hoverTilePos != null && !checkTower())
         {
             GameObject newTowerObject = Instantiate(basicTowerObject);
             newTowerObject.layer = LayerMask.NameToLayer("Tower");
-            newTowerObject.transform.position = hoverTile.transform.position;
+            if (hoverTilePos != null) newTowerObject.transform.position = (Vector3) hoverTilePos;
             endBuilding();
         }    
     }
@@ -85,7 +70,7 @@ public class PlacementManager : MonoBehaviour
     public void endBuilding()
     {
         isBuilding = false;
-        if(dummyPlacement != null)
+        if(dummyPlacement)
         {
             Destroy(dummyPlacement);
         }
@@ -96,12 +81,21 @@ public class PlacementManager : MonoBehaviour
         
         if (isBuilding == true)
         {
-            if(dummyPlacement != null)
+            if(dummyPlacement)
             {
-                getHoverTile();
-                if(hoverTile != null)
+                var mousePos = getMousePos();
+
+                var tileCoords = new Vector3Int((int) mousePos.x, (int) mousePos.y, 0);
+                var tile = tilemap.GetTile<TerrainTile>(tileCoords);
+
+                if(tile && !tile.flags.Contains(TerrainData.Restricted))
                 {
-                    dummyPlacement.transform.position = hoverTile.transform.position;
+                    hoverTilePos = tileCoords;
+                    if (hoverTilePos != null) dummyPlacement.transform.position = (Vector3) hoverTilePos;
+                }
+                else
+                {
+                    hoverTilePos = null;
                 }
             }
             if (Input.GetButtonDown("Fire1"))

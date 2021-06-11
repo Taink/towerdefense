@@ -1,186 +1,67 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class MapGenerator : MonoBehaviour
 {
     //Variables
-    public GameObject mapTile;
-    [SerializeField] private int mapHauteur;
-    [SerializeField] private int mapLargeur;
+    [SerializeField] private Tilemap tilemap;
+    [SerializeField] private TileBase defaultTile;
+    [SerializeField] private TileBase borderTile;
+    [SerializeField] private int mapHeight;
+    [SerializeField] private int mapWidth;
+    [SerializeField] private Transform camera;
+    [SerializeField] private Transform startPoint;
+    [SerializeField] private Transform endPoint;
 
-    public static List<GameObject> mapTiles = new List<GameObject>();
-    public static List<GameObject> chemin = new List<GameObject>();
-    private static GameObject startTile;
-    private static GameObject endTile;
-
-
-    private bool reachedX = false;
-    private bool reachedY = false;
-
-    private GameObject currentTile;
-    private int currentIndex;
-    private int nextIndex;
-
-    //variable de couleur modifiable sur Unity
-    public Color couleurChemin;
+    private static Vector3Int startCoords;
+    private static Vector3Int endCoords;
 
     //Méthode de lancement de la scène
     private void Start()
     {
         generateMap();
+        SnapCamToGrid();
     }
 
-    //Renvoie les cases de la ligne du haut
-    private List<GameObject> getTopEdgeTiles()
+    private void SnapCamToGrid()
     {
-        List<GameObject> edgeTile = new List<GameObject>();
-
-        for (int i = mapLargeur * (mapHauteur -1);  i < mapHauteur * mapLargeur; i++)
-        {
-            edgeTile.Add(mapTiles[i]);
-        }
-
-        return edgeTile;
+        var curPos = transform.position;
+        camera.position = new Vector3(curPos.x + mapWidth / 2f, curPos.y + mapHeight / 2f, camera.position.z);
     }
 
-    //Renvoie les cases de la ligne du bas
-    private List<GameObject> getBottomEdgeTiles()
+    public static Vector3Int getStartCoords()
     {
-        List<GameObject> edgeTile = new List<GameObject>();
-
-        for (int i = 0; i < mapLargeur * mapLargeur; i++)
-        {
-            edgeTile.Add(mapTiles[i]);
-        }
-
-        return edgeTile;
+        return startCoords;
     }
 
-    //Méthodes permettant de créer le chemin
-    private void moveDown()
+    public static Vector3Int getEndCoords()
     {
-        chemin.Add(currentTile);
-        currentIndex = mapTiles.IndexOf(currentTile);
-        nextIndex = currentIndex - mapLargeur;
-        currentTile = mapTiles[nextIndex];
-    }
-
-    private void moveLeft()
-    {
-        chemin.Add(currentTile);
-        currentIndex = mapTiles.IndexOf(currentTile);
-        nextIndex = currentIndex-1;
-        currentTile = mapTiles[nextIndex];
-    }
-
-    private void moveRight()
-    {
-        chemin.Add(currentTile);
-        currentIndex = mapTiles.IndexOf(currentTile);
-        nextIndex = currentIndex+1;
-        currentTile = mapTiles[nextIndex];
-    }
-
-    public static List<GameObject> getMap()
-    {
-        return mapTiles;
-    }
-
-    public static List<GameObject> getChemin()
-    {
-        return chemin;
-    }
-
-    public static GameObject getStartTile()
-    {
-        return startTile;
-    }
-
-    public static GameObject getEndTile()
-    {
-        return endTile;
+        return endCoords;
     }
 
     /*Méthode principale :
-     * Génère la map
-     * Place le chemin
+     * Génère un rectangle correspondant aux dimensions
+     * Génère un départ et une arrivée
     */
     private void generateMap()
     {
-
-        for (int y = 0 -(mapHauteur/2); y <mapHauteur - (mapHauteur / 2); y++)
+        for (int y = 0; y < mapHeight; y++)
         {
-            for (int x = 0 - (mapLargeur / 2); x < mapLargeur - (mapLargeur / 2); x++)
+            for (int x = 0; x < mapWidth; x++)
             {
-                GameObject newTile = Instantiate(mapTile);
-
-                mapTiles.Add(newTile);
-
-                newTile.transform.position = new Vector2(x,y);
+                if (x == 0 || y == 0 || x == mapWidth - 1 || y == mapHeight - 1)
+                {
+                    tilemap.SetTile(new Vector3Int(x, y, 0), borderTile);
+                    continue;
+                }
+                tilemap.SetTile(new Vector3Int(x, y, 0), defaultTile);
             }
         }
 
-        List<GameObject> topEdgeTiles = getTopEdgeTiles();
-        List<GameObject> botEdgeTiles = getBottomEdgeTiles();
+        startCoords = new Vector3Int(Random.Range(0, mapWidth - 1), mapHeight - 1, 0);
+        endCoords = new Vector3Int(Random.Range(0, mapWidth - 1), 0, 0);
 
-
-
-        int rand1 = Random.Range(0, mapLargeur - 1);
-        int rand2 = Random.Range(0, mapLargeur - 1);
-
-        startTile = topEdgeTiles[rand1];
-        endTile = botEdgeTiles[rand2];
-
-        currentTile = startTile;
-        moveDown();
-        int debugLoop = 0;
-
-        while(reachedX == false)
-        {
-            debugLoop++;
-            if(debugLoop > mapHauteur * mapLargeur)
-            {
-                Debug.Log("Boucle trop longue. Execution interrompue.");
-                break;
-            }
-            if(currentTile.transform.position.x > endTile.transform.position.x)
-            {
-                moveLeft();
-            }
-            else if (currentTile.transform.position.x < endTile.transform.position.x)
-            {
-                moveRight();
-            }
-            else
-            {
-                reachedX = true;
-            }
-        }
-        debugLoop = 0;
-        while (reachedY == false)
-        {
-            debugLoop++;
-            if (debugLoop > mapHauteur * mapLargeur)
-            {
-                Debug.Log("Boucle trop longue. Execution interrompue.");
-                break;
-            }
-
-            if (currentTile.transform.position.y > endTile.transform.position.y)
-            {
-                moveDown();
-            }
-            else
-            {
-                reachedY = true;
-            }
-
-        }
-        chemin.Add(endTile);
-        foreach(GameObject obj in chemin)
-        {
-            obj.GetComponent<SpriteRenderer>().color = couleurChemin;
-        }
+        startPoint.localPosition = startCoords;
+        endPoint.localPosition = endCoords;
     }
 }
