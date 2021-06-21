@@ -12,7 +12,7 @@ public abstract class DefenseTowers : Tower
     [SerializeField] private GameObject bullet;
     public Transform barrel;
     public Transform pivot;
-    public GameObject target;
+    public Transform target;
 
     protected void init(string unitName, string unitDesc,float dmg, float rng, float atkSp)
     {
@@ -31,10 +31,10 @@ public abstract class DefenseTowers : Tower
     // Update is called once per frame
     private void updateNearestEnemy()
     {
-        GameObject currentNearestEnemy = null;
+        Transform currentNearestEnemy = null;
         float distance = Mathf.Infinity;
 
-        foreach (GameObject enemy in Enemies.getEnemies())
+        foreach (Transform enemy in Enemies.getEnemies())
         {
             if (enemy != null)
             {

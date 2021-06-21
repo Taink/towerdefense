@@ -9,7 +9,7 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private TileBase borderTile;
     [SerializeField] private int mapHeight;
     [SerializeField] private int mapWidth;
-    [SerializeField] private Transform camera;
+    [SerializeField] private Transform cameraTransform;
     [SerializeField] private Transform startPoint;
     [SerializeField] private Transform endPoint;
 
@@ -26,7 +26,7 @@ public class MapGenerator : MonoBehaviour
     private void SnapCamToGrid()
     {
         var curPos = transform.position;
-        camera.position = new Vector3(curPos.x + mapWidth / 2f, curPos.y + mapHeight / 2f, camera.position.z);
+        cameraTransform.position = new Vector3(curPos.x + mapWidth / 2f, curPos.y + mapHeight / 2f, cameraTransform.position.z);
     }
 
     public static Vector3Int getStartCoords()

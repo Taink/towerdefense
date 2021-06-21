@@ -1,23 +1,34 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Enemies : MonoBehaviour
 {
-    private static List<GameObject> enemies = new List<GameObject>();
+    public Transform start;
+    public Transform target;
 
-    public static List<GameObject> getEnemies()
+    private static List<Transform> enemies;
+    
+
+    public static Transform[] getEnemies()
     {
-        return enemies;
+        return enemies.ToArray();
+    }
+
+    public void Awake()
+    {
+        enemies = new List<Transform>();
     }
 
 
-    public static void addEnemy(GameObject enemy)
+    public static void AddEnemy(Transform enemy)
     {
+        // enemy.SetParent();
         enemies.Add(enemy);
     }
 
-    public static void supressEnemy(GameObject enemy)
+    public static void RemoveEnemy(Transform enemy)
     {
         enemies.Remove(enemy);
     }

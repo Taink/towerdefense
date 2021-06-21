@@ -62,7 +62,7 @@ public class RoundController : MonoBehaviour
         }
         else if (isRoundGoing)
         {
-            if (Enemies.getEnemies().Count > 0)
+            if (Enemies.getEnemies().Length > 0)
             {
 
             }

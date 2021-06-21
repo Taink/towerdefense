@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float damage;
     [SerializeField] private int dmgType; // 0 = physique | 1 = magique | 2 ou autre = dégats bruts
-    public GameObject target;
+    public Transform target;
 
     private void Start()
     {
@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour
         transform.position += transform.right * 0.085f;
     }
 
-    public void updateTarget(GameObject target)
+    public void updateTarget(Transform target)
     {
         this.target = target;
     }

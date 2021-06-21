@@ -14,17 +14,17 @@ public class EnemyAI : MonoBehaviour
     private float magicRes;//resistance magique
     //resistances : 0 = 0% | 1 = 15% | 2 = 35% | 3 = 60%
     // -> pourquoi ne pas le stocker sous une forme de pourcentage au lieu de passer via des nombres?
-    //    qqch comme 0.6 pour 60% de résistance magique
+    //    qqch comme 0.6 pour 60% de rï¿½sistance magique
     [SerializeField]
-    private float movSpeed; //vitesse de déplacement
-    private int _killReward; //quantité d'or donnée à la mort
-    private int _damage; //dégats lorsqu'il sort de la carte
+    private float movSpeed; //vitesse de dï¿½placement
+    private int _killReward; //quantitï¿½ d'or donnï¿½e ï¿½ la mort
+    private int _damage; //dï¿½gats lorsqu'il sort de la carte
 
-    private Vector3Int _target;
+    private Transform _target;
 
     private void Awake()
     {
-        Enemies.addEnemy(gameObject);
+        Enemies.AddEnemy(transform);
     }
 
     private void Start()
@@ -32,11 +32,10 @@ public class EnemyAI : MonoBehaviour
         generateEnemy();
     }
 
-    //Méthode de génération : défini la première case comme la StartTile, définie dans MapGenerator
+    //Mï¿½thode de gï¿½nï¿½ration : dï¿½fini la premiï¿½re case comme la StartTile, dï¿½finie dans MapGenerator
     private void generateEnemy()
     {
         healthbar.SetMaxHealth((int)health);
-        _target = MapGenerator.getStartCoords();
     }
 
     public void takeDamage(float dmg, int dmgType)
@@ -72,14 +71,14 @@ public class EnemyAI : MonoBehaviour
 
     private void die()
     {
-        Enemies.supressEnemy(gameObject);
-        Destroy(this.transform.gameObject);
+        Enemies.RemoveEnemy(transform);
+        Destroy(gameObject);
     }
 
-    //Déplace l'objet vers la case définie comme "objectif" (target)
+    //Dï¿½place l'objet vers la case dï¿½finie comme "objectif" (target)
     private void moveEnemy()
     {
-        this.transform.position = Vector3.MoveTowards(transform.position, _target, movSpeed * Time.deltaTime);
+        this.transform.position = Vector3.MoveTowards(transform.position, _target.position, movSpeed * Time.deltaTime);
         if (this.transform.position.Equals(MapGenerator.getEndCoords()))
         {
             LivesCounter.remainingLives -= _damage;
@@ -89,8 +88,8 @@ public class EnemyAI : MonoBehaviour
     }
 
     /* Update is called once per frame
-     * vérifie la position
-     * déplace l'objet
+     * vï¿½rifie la position
+     * dï¿½place l'objet
      * */
     private void Update()
     {
