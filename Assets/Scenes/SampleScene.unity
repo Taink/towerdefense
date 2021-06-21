@@ -566,6 +566,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12cdeb174761e2c4a913e15633102f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  start: {fileID: 0}
+  target: {fileID: 0}
 --- !u!4 &618495771
 Transform:
   m_ObjectHideFlags: 0
@@ -731,7 +733,7 @@ MonoBehaviour:
   borderTile: {fileID: 11400000, guid: b7f2ea220c8f4b54c9c9351de95a4a91, type: 2}
   mapHeight: 10
   mapWidth: 10
-  camera: {fileID: 1114079190}
+  cameraTransform: {fileID: 1114079190}
   startPoint: {fileID: 1587534050}
   endPoint: {fileID: 1022608971}
 --- !u!1 &982468272
