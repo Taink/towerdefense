@@ -38,7 +38,15 @@ public class HandManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         for (int i = 0; i < MaxCardInHand; i++)
         {
-            Instantiate(card1, cardPlaces[i].transform.position, Quaternion.identity);
+            if (Random.Range(0, 2) == 0)
+            {
+                Instantiate(card1, cardPlaces[i].transform.position, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(card2, cardPlaces[i].transform.position, Quaternion.identity);
+            }
+            
         }
     }
 
