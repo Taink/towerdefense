@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6796800406132161258}
   - component: {fileID: 279951896023455418}
   - component: {fileID: 1923498939349802229}
+  - component: {fileID: -6801292755164073430}
   m_Layer: 8
   m_Name: archerCard 1
   m_TagString: Untagged
@@ -97,3 +98,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 8947287840470397364, guid: 73d88f59d11792d42985d8bf2a5310be, type: 3}
+--- !u!61 &-6801292755164073430
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8748161036050005367}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.7, y: 8.05}
+    newSize: {x: 5.7, y: 8.05}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.7, y: 8.05}
+  m_EdgeRadius: 0
