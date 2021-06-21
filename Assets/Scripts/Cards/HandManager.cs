@@ -26,7 +26,16 @@ public class HandManager : MonoBehaviour
                 cardHand.Add(card2);
             }
         }*/
+        /*for (int i = 0; i < MaxCardInHand; i++)
+        {
+            Instantiate(card1, cardPlaces[i].transform.position, Quaternion.identity);
+        }*/
+        StartCoroutine(waiter());
+    }
 
+    IEnumerator waiter()
+    {
+        yield return new WaitForSeconds(4);
         for (int i = 0; i < MaxCardInHand; i++)
         {
             Instantiate(card1, cardPlaces[i].transform.position, Quaternion.identity);
@@ -36,6 +45,18 @@ public class HandManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+            if (hit.collider != null)
+            {
+                Debug.Log(hit.collider.gameObject.name);
+                //hit.collider.attachedRigidbody.AddForce(Vector2.up);
+            }
+        }
+
     }
 }

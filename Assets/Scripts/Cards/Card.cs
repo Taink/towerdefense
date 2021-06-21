@@ -14,7 +14,7 @@ public class Card : MonoBehaviour
     {
 
 
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
@@ -26,7 +26,7 @@ public class Card : MonoBehaviour
                 //hit.collider.attachedRigidbody.AddForce(Vector2.up);
             }
         }
-
+*/
     }
 
     private void Start()
