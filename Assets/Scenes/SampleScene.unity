@@ -324,6 +324,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card1: {fileID: 363056752207992131, guid: 0bdab913c2ef5ab4281ff5cf3f16d879, type: 3}
   card2: {fileID: 5486934287838118948, guid: 81212875c2678844ab9631ce45f2b78e, type: 3}
+  card3: {fileID: 3529674279762805301, guid: 8691dd0e4b29bf943b793f149d6ea19c, type: 3}
+  card4: {fileID: 3202236873923787870, guid: 21262bace2e2cbc47a481ba1a1838e17, type: 3}
   cardPlaces:
   - {fileID: 55995733}
   - {fileID: 55995732}

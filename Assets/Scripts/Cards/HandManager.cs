@@ -8,7 +8,10 @@ public class HandManager : MonoBehaviour
     const int MaxCardInHand = 5;
     [SerializeField] private GameObject card1;
     [SerializeField] private GameObject card2;
+    [SerializeField] private GameObject card3;
+    [SerializeField] private GameObject card4;
     private List<GameObject> cardHand;
+
     [SerializeField] private List<GameObject> cardPlaces;
     [SerializeField] private GameObject placementManager;
     // Start is called before the first frame update
@@ -40,15 +43,23 @@ public class HandManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         for (int i = 0; i < MaxCardInHand; i++)
         {
-            if (Random.Range(0, 2) == 0)
+            int rint = Random.Range(0, 100);
+            if (rint >= 0 && rint <34)
             {
-                GameObject.Instantiate(card1, cardPlaces[i].transform.position, Quaternion.identity).tag="Card1";
+                GameObject.Instantiate(card1, cardPlaces[i].transform.position, Quaternion.identity).tag = "Card1";
             }
-            else
+            else if (rint >= 34 && rint < 67)
             {
-                GameObject.Instantiate(card2, cardPlaces[i].transform.position, Quaternion.identity).tag ="Card2";
+                GameObject.Instantiate(card2, cardPlaces[i].transform.position, Quaternion.identity).tag = "Card2";
             }
-            
+            else if (rint >= 67 && rint < 90)
+            {
+                GameObject.Instantiate(card3, cardPlaces[i].transform.position, Quaternion.identity).tag = "Card3";
+            }
+            else if (rint >= 90 && rint < 100)
+            {
+                GameObject.Instantiate(card4, cardPlaces[i].transform.position, Quaternion.identity).tag = "Card4";
+            }
         }
     }
 
