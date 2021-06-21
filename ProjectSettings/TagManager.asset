@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - PlacementManager
+  - Card1
+  - Card2
   layers:
   - Default
   - TransparentFX

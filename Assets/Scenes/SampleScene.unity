@@ -644,7 +644,7 @@ GameObject:
   - component: {fileID: 982468273}
   m_Layer: 0
   m_Name: PlacementManager
-  m_TagString: Untagged
+  m_TagString: PlacementManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -662,7 +662,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemap: {fileID: 283203070}
-  basicTowerObject: {fileID: 0}
   cam: {fileID: 1114079189}
   mask:
     serializedVersion: 2
@@ -671,6 +670,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   isBuilding: 0
+  basicTowerObject: {fileID: 0}
 --- !u!4 &982468274
 Transform:
   m_ObjectHideFlags: 0
