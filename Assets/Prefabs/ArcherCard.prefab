@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7437514998891752178}
   - component: {fileID: -3408046510029563367}
   m_Layer: 0
-  m_Name: ArcherCard 1 1
+  m_Name: ArcherCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d87fc66cd14bad34e882db208a5c53d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 8947287840470397364, guid: 73d88f59d11792d42985d8bf2a5310be, type: 3}
+  unit: {fileID: 7220155293123374622, guid: 73d88f59d11792d42985d8bf2a5310be, type: 3}
 --- !u!61 &-3408046510029563367
 BoxCollider2D:
   m_ObjectHideFlags: 0
