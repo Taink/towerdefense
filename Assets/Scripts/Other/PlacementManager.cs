@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class PlacementManager : MonoBehaviour
 {
     [SerializeField] private Tilemap tilemap;
-    public GameObject basicTowerObject;
+    
     private GameObject dummyPlacement;
     public Camera cam;
     private Vector3? hoverTilePos;
@@ -14,8 +14,7 @@ public class PlacementManager : MonoBehaviour
     public LayerMask mask;
     public LayerMask towerMask;
     public bool isBuilding;
-
-
+    public GameObject basicTowerObject;
 
     public void Start()
     {
@@ -68,7 +67,7 @@ public class PlacementManager : MonoBehaviour
         {
             Destroy(dummyPlacement.GetComponent<Rotation>());
         }
-        throw new NotImplementedException();
+       
     }
 
 

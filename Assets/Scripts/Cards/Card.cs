@@ -8,6 +8,8 @@ public class Card : MonoBehaviour
     private string unitName;
     //[SerializeField] GameObject unitée;
     [SerializeField] private GameObject unit;
+    private bool inPlacement = false;
+    private bool placed = false;
 
     public GameObject getUnit()
     {
@@ -15,15 +17,25 @@ public class Card : MonoBehaviour
         throw new NotImplementedException();
     }
 
-    public void destroy()
+    public void setPlacement()
     {
-        Destroy(this.transform.gameObject);
+        inPlacement = true;
     }
+
+    public void setPlaced()
+    {
+        inPlacement = false;
+        placed = true;
+    }
+
 
     private void Update()
     {
 
-
+        if (placed)
+        {
+            Destroy(gameObject);
+        }
         /*if (Input.GetMouseButtonDown(0))
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
