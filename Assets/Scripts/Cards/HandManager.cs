@@ -35,7 +35,7 @@ public class HandManager : MonoBehaviour
 
     IEnumerator waiter()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2);
         for (int i = 0; i < MaxCardInHand; i++)
         {
             Instantiate(card1, cardPlaces[i].transform.position, Quaternion.identity);
