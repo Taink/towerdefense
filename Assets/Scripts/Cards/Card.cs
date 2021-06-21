@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,9 +7,18 @@ public class Card : MonoBehaviour
 {
     private string unitName;
     //[SerializeField] GameObject unitée;
-    [SerializeField] Tower unit;
+    [SerializeField] private GameObject unit;
 
+    public GameObject getUnit()
+    {
+        return unit;
+        throw new NotImplementedException();
+    }
 
+    public void destroy()
+    {
+        Destroy(this.transform.gameObject);
+    }
 
     private void Update()
     {

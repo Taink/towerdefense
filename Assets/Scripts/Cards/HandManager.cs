@@ -9,6 +9,7 @@ public class HandManager : MonoBehaviour
     [SerializeField] private GameObject card2;
     private List<GameObject> cardHand;
     [SerializeField] private List<GameObject> cardPlaces;
+    [SerializeField] private GameObject placementManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,8 +62,14 @@ public class HandManager : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
             if (hit.collider != null)
             {
+                GameObject carte = hit.collider.gameObject;
+                Card cardScript = carte.GetComponent<Card>();
+                GameObject placement = placementManager;
+                PlacementManager placementScript = placement.GetComponent<PlacementManager>();
+                GameObject tower = cardScript.getUnit();
+                placementScript.startBuilding(tower);
                 Debug.Log(hit.collider.gameObject.name);
-                //hit.collider.attachedRigidbody.AddForce(Vector2.up);
+                hit.collider.attachedRigidbody.AddForce(Vector2.up);
             }
         }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -18,7 +19,7 @@ public class PlacementManager : MonoBehaviour
 
     public void Start()
     {
-        startBuilding();
+        //startBuilding();
     }
 
     public Vector2 getMousePos()
@@ -51,8 +52,10 @@ public class PlacementManager : MonoBehaviour
         }    
     }
 
-    public void startBuilding()
+    public void startBuilding(GameObject tower)
     {
+        
+        basicTowerObject = tower;
         isBuilding = true;
 
         dummyPlacement = Instantiate(basicTowerObject);
@@ -65,7 +68,9 @@ public class PlacementManager : MonoBehaviour
         {
             Destroy(dummyPlacement.GetComponent<Rotation>());
         }
+        throw new NotImplementedException();
     }
+
 
     public void endBuilding()
     {
