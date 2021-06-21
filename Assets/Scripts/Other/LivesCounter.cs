@@ -11,7 +11,7 @@ public class LivesCounter : MonoBehaviour
     void Start()
     {
         livesText = GetComponent<Text>();
-        remainingLives = 0;
+        remainingLives = 20;
     }
 
     // Update is called once per frame

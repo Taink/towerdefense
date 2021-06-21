@@ -80,6 +80,12 @@ public class EnemyAI : MonoBehaviour
     private void moveEnemy()
     {
         this.transform.position = Vector3.MoveTowards(transform.position, _target, movSpeed * Time.deltaTime);
+        if (this.transform.position.Equals(MapGenerator.getEndCoords()))
+        {
+            LivesCounter.remainingLives -= _damage;
+            die();
+        }
+
     }
 
     /* Update is called once per frame
