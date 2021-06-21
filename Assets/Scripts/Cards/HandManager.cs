@@ -6,6 +6,7 @@ using UnityEngine;
 public class HandManager : MonoBehaviour
 {
     const int MaxCardInHand = 5;
+    int cardsInHand = 0;
     [SerializeField] private GameObject card1;
     [SerializeField] private GameObject card2;
     [SerializeField] private GameObject card3;
@@ -35,13 +36,13 @@ public class HandManager : MonoBehaviour
         {
             Instantiate(card1, cardPlaces[i].transform.position, Quaternion.identity);
         }*/
-        StartCoroutine(waiter());
+        StartCoroutine(draw(MaxCardInHand));
     }
 
-    IEnumerator waiter()
+    IEnumerator draw(int nbCartes)
     {
         yield return new WaitForSeconds(2);
-        for (int i = 0; i < MaxCardInHand; i++)
+        for (int i = 0; i < nbCartes; i++)
         {
             int rint = Random.Range(0, 100);
             if (rint >= 0 && rint <34)
@@ -60,7 +61,13 @@ public class HandManager : MonoBehaviour
             {
                 GameObject.Instantiate(card4, cardPlaces[i].transform.position, Quaternion.identity).tag = "Card4";
             }
+            cardsInHand++;
         }
+    }
+
+    public void piocher()
+    {
+        StartCoroutine(draw(1));
     }
 
     // Update is called once per frame
@@ -83,6 +90,7 @@ public class HandManager : MonoBehaviour
                     cardScript.setPlacement();
                     placementScript.startBuilding(tower);
                     cardScript.setPlaced();
+                    cardsInHand--;
                     //hit.collider.attachedRigidbody.AddForce(Vector2.up);
                 }
                 
