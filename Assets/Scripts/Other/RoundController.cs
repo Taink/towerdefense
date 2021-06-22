@@ -94,7 +94,7 @@ public class RoundController : MonoBehaviour
     {
         for(int i = 0; i < nb; i++)
         {
-            GameObject newEnemy = Instantiate(enemy, MapGenerator.getStartCoords(), Quaternion.identity);
+            GameObject newEnemy = Instantiate(enemy, Enemies.start.position, Quaternion.identity);
             yield return new WaitForSeconds(time);
         }
     }

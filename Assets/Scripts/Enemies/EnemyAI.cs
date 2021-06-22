@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -16,13 +15,21 @@ public class EnemyAI : MonoBehaviour
     // -> pourquoi ne pas le stocker sous une forme de pourcentage au lieu de passer via des nombres?
     //    qqch comme 0.6 pour 60% de r�sistance magique
     [SerializeField]  
-    private float movSpeed; //vitesse de d�placement
+    private float movSpeed = 200f; //vitesse de d�placement
     private int _killReward; //quantit� d'or donn�e � la mort
     private int _damage; //d�gats lorsqu'il sort de la carte
 
-    private Transform _target;
+    private readonly Transform _target = Enemies.target;
+    private Path _path;
+    private int _currentWayPoint = 0;
+    private float _nextWaypointDistance;
+    private bool _reachedEndOfPath = false;
+    private Seeker _seeker;
+    private Rigidbody2D _rb;
+
     private float slowTime;
     private float baseSpeed;
+
     private void Awake()
     {
         Enemies.AddEnemy(transform);
@@ -30,8 +37,21 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
+        _seeker = GetComponent<Seeker>();
+        _rb = GetComponent<Rigidbody2D>();
+
+        _seeker.StartPath(_rb.position, _target.position, OnPathComplete);
         generateEnemy();
         baseSpeed = movSpeed;
+    }
+
+    private void OnPathComplete(Path p)
+    {
+        if (!p.error)
+        {
+            _path = p;
+            _currentWayPoint = 0;
+        }
     }
 
     //M�thode de g�n�ration : d�fini la premi�re case comme la StartTile, d�finie dans MapGenerator
@@ -106,8 +126,19 @@ public class EnemyAI : MonoBehaviour
      * v�rifie la position
      * d�place l'objet
      * */
-    private void Update()
+    private void FixedUpdate()
     {
+        if (_path == null) return;
+
+        _reachedEndOfPath = _currentWayPoint >= _path.vectorPath.Count;
+        if (_reachedEndOfPath) return;
+
+        Vector2 direction = ((Vector2) _path.vectorPath[_currentWayPoint] - _rb.position).normalized;
+        Vector2 force = direction * baseSpeed * Time.deltaTime;
+
+        float distance = Vector2.Distance(_rb.position, _path.vectorPath[_currentWayPoint]);
+        if (distance < _nextWaypointDistance)
+        
         // checkPos();
         moveEnemy();
         if (Time.time - slowTime >= 3)
