@@ -65,6 +65,40 @@ public class HandManager : MonoBehaviour
         }
     }
 
+    public void draw1card()
+    {
+        for (int i= 0;i < cardPlaces.Count; i++)
+        {
+            Vector3 cardPos = cardPlaces[i].transform.position;
+            Vector2 cardPos2D = new Vector2(cardPos.x, cardPos.y);
+            RaycastHit2D hit = Physics2D.Raycast(cardPos2D, Vector2.zero);
+            if (hit.collider == null || hit.collider.gameObject.tag.Substring(0, 4) != "Card")
+            {
+                int rint = Random.Range(0, 100);
+                if (rint >= 0 && rint < 34)
+                {
+                    GameObject.Instantiate(card1, cardPlaces[i].transform.position, Quaternion.identity).tag = "Card1";
+                }
+                else if (rint >= 34 && rint < 67)
+                {
+                    GameObject.Instantiate(card2, cardPlaces[i].transform.position, Quaternion.identity).tag = "Card2";
+                }
+                else if (rint >= 67 && rint < 90)
+                {
+                    GameObject.Instantiate(card3, cardPlaces[i].transform.position, Quaternion.identity).tag = "Card3";
+                }
+                else if (rint >= 90 && rint < 100)
+                {
+                    GameObject.Instantiate(card4, cardPlaces[i].transform.position, Quaternion.identity).tag = "Card4";
+                }
+                cardsInHand++;
+            }
+            return;
+        }
+    }
+
+
+
     public void piocher()
     {
         StartCoroutine(draw(1));
