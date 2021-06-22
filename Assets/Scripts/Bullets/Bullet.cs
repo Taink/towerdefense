@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, 10f);
+        Destroy(gameObject, 5f);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -28,8 +28,12 @@ public class Bullet : MonoBehaviour
     }
     public void dmgEnemy()
     {
-        EnemyAI enemyAIScript = target.GetComponent<EnemyAI>();
-        enemyAIScript.takeDamage(damage, dmgType);
+        if(target != null)
+        {
+            EnemyAI enemyAIScript = target.GetComponent<EnemyAI>();
+            enemyAIScript.takeDamage(damage, dmgType);
+        }
+        
     }
 
 }

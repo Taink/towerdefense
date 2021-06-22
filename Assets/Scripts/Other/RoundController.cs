@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class RoundController : MonoBehaviour
 {
     public GameObject basicEnemy;
+    public GameObject dogEnemy;
+    public GameObject mageEnemy;
+    public GameObject tankEnemy;
 
     public float timeBetweenWaves;
     public float timeBeforeRoundStart;
