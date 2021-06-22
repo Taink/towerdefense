@@ -78,13 +78,15 @@ public class EnemyAI : MonoBehaviour
     //D�place l'objet vers la case d�finie comme "objectif" (target)
     private void moveEnemy()
     {
-        this.transform.position = Vector3.MoveTowards(transform.position, _target.position, movSpeed * Time.deltaTime);
-        if (this.transform.position.Equals(MapGenerator.getEndCoords()))
+        if (_target)
         {
-            LivesCounter.remainingLives -= _damage;
-            die();
+            this.transform.position = Vector3.MoveTowards(transform.position, _target.position, movSpeed * Time.deltaTime);
+            if (this.transform.position.Equals(MapGenerator.getEndCoords()))
+            {
+                LivesCounter.remainingLives -= _damage;
+                die();
+            }
         }
-
     }
 
     /* Update is called once per frame
