@@ -15,13 +15,14 @@ public class EnemyAI : MonoBehaviour
     //resistances : 0 = 0% | 1 = 15% | 2 = 35% | 3 = 60%
     // -> pourquoi ne pas le stocker sous une forme de pourcentage au lieu de passer via des nombres?
     //    qqch comme 0.6 pour 60% de r�sistance magique
-    [SerializeField]
+    [SerializeField]  
     private float movSpeed; //vitesse de d�placement
     private int _killReward; //quantit� d'or donn�e � la mort
     private int _damage; //d�gats lorsqu'il sort de la carte
 
     private Transform _target;
-
+    private float slowTime;
+    private float baseSpeed;
     private void Awake()
     {
         Enemies.AddEnemy(transform);
@@ -30,6 +31,7 @@ public class EnemyAI : MonoBehaviour
     private void Start()
     {
         generateEnemy();
+        baseSpeed = movSpeed;
     }
 
     //M�thode de g�n�ration : d�fini la premi�re case comme la StartTile, d�finie dans MapGenerator
@@ -89,6 +91,17 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    public void slow()
+    {
+        if (movSpeed == baseSpeed)
+        {
+            movSpeed = (float)(movSpeed * 0.6);
+        }
+        
+        slowTime = Time.time;
+
+    }
+
     /* Update is called once per frame
      * v�rifie la position
      * d�place l'objet
@@ -97,5 +110,9 @@ public class EnemyAI : MonoBehaviour
     {
         // checkPos();
         moveEnemy();
+        if (Time.time - slowTime >= 3)
+        {
+            movSpeed = baseSpeed;
+        }
     }
 }

@@ -28,7 +28,7 @@ public abstract class DefenseTowers : Tower
         nextTimeShoot = Time.time;
     }
 
-    // Update is called once per frame
+
     private void updateNearestEnemy()
     {
         Transform currentNearestEnemy = null;
@@ -66,6 +66,7 @@ public abstract class DefenseTowers : Tower
 
     }
 
+    // Update is called once per frame
     private void Update()
     {
         updateNearestEnemy();
