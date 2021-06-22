@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class RoundController : MonoBehaviour
 {
     public GameObject basicEnemy;
@@ -10,7 +11,7 @@ public class RoundController : MonoBehaviour
     public float timeBeforeRoundStart;
     private float timeVariable;
     public int round;
-
+    private int lastRound;
 
     private bool isRoundGoing;
     private bool isIntermission;
@@ -24,6 +25,8 @@ public class RoundController : MonoBehaviour
 
         timeVariable = Time.time + timeBeforeRoundStart;
         round = 1;
+        lastRound = 20;
+        RoundCounter.updateRound(round, lastRound);
     }
 
 
@@ -73,9 +76,11 @@ public class RoundController : MonoBehaviour
 
                 timeVariable = Time.time + timeBeforeRoundStart;
                 round++;
+                RoundCounter.updateRound(round, lastRound);
                 return;
             }
         }
     }
+
 
 }
