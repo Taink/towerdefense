@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class RoundController : MonoBehaviour
 {
@@ -12,6 +12,7 @@ public class RoundController : MonoBehaviour
     private float timeVariable;
     public int round;
     private int lastRound;
+    public Text roundText;
 
     private bool isRoundGoing;
     private bool isIntermission;
@@ -26,7 +27,7 @@ public class RoundController : MonoBehaviour
         timeVariable = Time.time + timeBeforeRoundStart;
         round = 1;
         lastRound = 20;
-        RoundCounter.updateRound(round, lastRound);
+        updateRound();
     }
 
 
@@ -76,11 +77,13 @@ public class RoundController : MonoBehaviour
 
                 timeVariable = Time.time + timeBeforeRoundStart;
                 round++;
-                RoundCounter.updateRound(round, lastRound);
+                updateRound();
                 return;
             }
         }
     }
-
-
+    public void updateRound()
+    {
+        roundText.text = "Vague " + round + "/" + lastRound;
+    }
 }
