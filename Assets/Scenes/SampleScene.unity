@@ -3637,7 +3637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 809390270580855413, guid: a1a550b3dc6fe2c4889ea89e00c5b978, type: 3}
       propertyPath: enableRotation
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3501655126677275270, guid: a1a550b3dc6fe2c4889ea89e00c5b978, type: 3}
       propertyPath: m_RootOrder
@@ -5206,6 +5206,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1022608971}
+    - target: {fileID: 1337892310814691255, guid: 1fa9c3490e2c9754bb5b091afb9f4afd, type: 3}
+      propertyPath: enableRotation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1337892311076803675, guid: 1fa9c3490e2c9754bb5b091afb9f4afd, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
