@@ -86,11 +86,11 @@ public class HandManager : MonoBehaviour
                 {
                     GameObject.Instantiate(card2, cardPlaces[i].transform.position, Quaternion.identity).tag = "Card2";
                 }
-                else if (rint >= 67 && rint < 90)
+                else if (rint >= 67 && rint < 88)
                 {
                     GameObject.Instantiate(card3, cardPlaces[i].transform.position, Quaternion.identity).tag = "Card3";
                 }
-                else if (rint >= 90 && rint < 100)
+                else if (rint >= 88 && rint < 100)
                 {
                     GameObject.Instantiate(card4, cardPlaces[i].transform.position, Quaternion.identity).tag = "Card4";
                 }
