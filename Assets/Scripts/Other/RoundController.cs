@@ -9,11 +9,13 @@ public class RoundController : MonoBehaviour
     public GameObject dogEnemy;
     public GameObject mageEnemy;
     public GameObject tankEnemy;
+    public GameObject bossEnemy;
 
     private const float basicTime = (float)0.75;
     private const float dogTime = (float)0.50;
     private const float mageTime = (float)1.25;
     private const float tankTime = (float)1.25;
+    private const float bossTime = (float)3;
 
     public float timeBetweenWaves;
     public float timeBeforeRoundStart;
@@ -85,8 +87,12 @@ public class RoundController : MonoBehaviour
                 }
             }
         }
+        if(round == 10)
+        {
+            StartCoroutine(ISpawnEnemies(1, bossEnemy, bossTime));
+        }
 
-        StartCoroutine(ISpawnEnemies(power - compteur, basicEnemy, (float)0.5));
+        StartCoroutine(ISpawnEnemies(power - compteur, basicEnemy, basicTime));
 
     }
 
