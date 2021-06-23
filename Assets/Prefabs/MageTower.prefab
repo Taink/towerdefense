@@ -142,8 +142,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 543161959730260053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.548038, y: -3.9611747, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 672092606}
   m_Father: {fileID: 0}
@@ -218,14 +218,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.54, y: 0.8}
+    oldSize: {x: 1.6875, y: 2.5}
     newSize: {x: 0.54, y: 0.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.54, y: 0.8}
+  m_Size: {x: 1.68, y: 2.48}
   m_EdgeRadius: 0
 --- !u!114 &3674770513312172174
 MonoBehaviour:
@@ -239,9 +239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b8655a802bdbe47ab4a1099840f6c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
-  range: 4
-  atkSpeed: 2
   bullet: {fileID: 1352079390663049701, guid: 7edb3e341ec4b7244b955080227eb3fd, type: 3}
   barrel: {fileID: 1980899763}
   pivot: {fileID: 672092606}
