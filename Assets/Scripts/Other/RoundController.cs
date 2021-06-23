@@ -136,6 +136,11 @@ public class RoundController : MonoBehaviour
                 return;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
     public void updateRound()
     {
