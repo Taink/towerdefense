@@ -19,13 +19,8 @@ public class EnemyAI : MonoBehaviour
     private int _killReward; //quantit� d'or donn�e � la mort
     private int _damage; //d�gats lorsqu'il sort de la carte
 
-    private readonly Transform _target = Enemies.target;
-    private Path _path;
-    private int _currentWayPoint = 0;
-    private float _nextWaypointDistance;
-    private bool _reachedEndOfPath = false;
-    private Seeker _seeker;
-    private Rigidbody2D _rb;
+    private readonly Transform _target = Enemies.Target;
+    private AIDestinationSetter _destinationSetter;
 
     private float slowTime;
     private float baseSpeed;
@@ -37,21 +32,10 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
-        _seeker = GetComponent<Seeker>();
-        _rb = GetComponent<Rigidbody2D>();
-
-        _seeker.StartPath(_rb.position, _target.position, OnPathComplete);
+        _destinationSetter = GetComponent<AIDestinationSetter>();
+        _destinationSetter.target = _target;
         generateEnemy();
         baseSpeed = movSpeed;
-    }
-
-    private void OnPathComplete(Path p)
-    {
-        if (!p.error)
-        {
-            _path = p;
-            _currentWayPoint = 0;
-        }
     }
 
     //M�thode de g�n�ration : d�fini la premi�re case comme la StartTile, d�finie dans MapGenerator
@@ -128,19 +112,8 @@ public class EnemyAI : MonoBehaviour
      * */
     private void FixedUpdate()
     {
-        if (_path == null) return;
-
-        _reachedEndOfPath = _currentWayPoint >= _path.vectorPath.Count;
-        if (_reachedEndOfPath) return;
-
-        Vector2 direction = ((Vector2) _path.vectorPath[_currentWayPoint] - _rb.position).normalized;
-        Vector2 force = direction * baseSpeed * Time.deltaTime;
-
-        float distance = Vector2.Distance(_rb.position, _path.vectorPath[_currentWayPoint]);
-        if (distance < _nextWaypointDistance)
-        
         // checkPos();
-        moveEnemy();
+        // moveEnemy();
         if (Time.time - slowTime >= 3)
         {
             movSpeed = baseSpeed;

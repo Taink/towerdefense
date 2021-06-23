@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Enemies : MonoBehaviour
 {
-    public static Transform start;
-    public static Transform target;
+    public static Transform Start;
+    public static Transform Target;
 
     private static List<Transform> enemies;
     
