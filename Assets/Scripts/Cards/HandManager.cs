@@ -109,6 +109,7 @@ public class HandManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
@@ -122,7 +123,7 @@ public class HandManager : MonoBehaviour
                     PlacementManager placementScript = GameObject.FindGameObjectWithTag("PlacementManager").GetComponent<PlacementManager>();
                     GameObject tower = cardScript.getUnit();
                     cardScript.setPlacement();
-                    placementScript.startBuilding(tower);
+                    placementScript.startBuilding(tower, Time.time);
                     cardScript.setPlaced();
                     cardsInHand--;
                     //hit.collider.attachedRigidbody.AddForce(Vector2.up);

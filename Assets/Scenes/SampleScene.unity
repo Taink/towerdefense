@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8861559740805243398, guid: 0130209113dc1ac448efd36ee210e67b, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8861559740805243398, guid: 0130209113dc1ac448efd36ee210e67b, type: 3}
       propertyPath: m_AnchorMax.x
@@ -346,7 +346,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &201177899
 GameObject:
@@ -378,11 +378,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basicEnemy: {fileID: 5232781878717554702, guid: a1a550b3dc6fe2c4889ea89e00c5b978, type: 3}
-  dogEnemy: {fileID: 0}
-  mageEnemy: {fileID: 0}
-  tankEnemy: {fileID: 0}
+  dogEnemy: {fileID: 1337892310814691253, guid: 1fa9c3490e2c9754bb5b091afb9f4afd, type: 3}
+  mageEnemy: {fileID: 8759884021318794938, guid: 39ee30fed989c62419bcb466389234cc, type: 3}
+  tankEnemy: {fileID: 4133580757543489755, guid: f4781e5cbf45f1f47b60cb82546b69e5, type: 3}
+  bossEnemy: {fileID: 9154907947862154043, guid: de5645ba44eb0c9449c04d6c8d6c2713, type: 3}
   timeBetweenWaves: 5
-  timeBeforeRoundStart: 5
+  timeBeforeRoundStart: 2
   round: 0
   roundText: {fileID: 1225880079}
 --- !u!4 &201177901
@@ -3932,7 +3933,7 @@ MonoBehaviour:
   cam: {fileID: 1114079189}
   mask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
   towerMask:
     serializedVersion: 2
     m_Bits: 64

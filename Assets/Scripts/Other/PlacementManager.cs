@@ -15,6 +15,7 @@ public class PlacementManager : MonoBehaviour
     public LayerMask towerMask;
     public bool isBuilding;
     public GameObject basicTowerObject;
+    private float time;
 
     public void Start()
     {
@@ -51,9 +52,9 @@ public class PlacementManager : MonoBehaviour
         }    
     }
 
-    public void startBuilding(GameObject tower)
+    public void startBuilding(GameObject tower, float t)
     {
-        
+        time = t;
         basicTowerObject = tower;
         isBuilding = true;
 
@@ -102,7 +103,7 @@ public class PlacementManager : MonoBehaviour
                     hoverTilePos = null;
                 }
             }
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetMouseButtonDown(0) & Time.time - time > 0.1)
             {
                 placeBuilding();
             }
