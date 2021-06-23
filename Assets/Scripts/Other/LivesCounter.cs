@@ -17,6 +17,13 @@ public class LivesCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        livesText.text = remainingLives.ToString();
+        if (remainingLives < 0)
+        {
+            livesText.text = "0";
+        }
+        else
+        {
+            livesText.text = remainingLives.ToString();
+        }
     }
 }
