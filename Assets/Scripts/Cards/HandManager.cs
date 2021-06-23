@@ -78,22 +78,22 @@ public class HandManager : MonoBehaviour
             if (hit.collider == null || hit.collider.gameObject.tag.Substring(0, 4) != "Card")
             {
                 int rint = Random.Range(0, 100);
-                if (rint >= 0 && rint < 34)
+                if (rint >= 0 && rint < 40)
                 {
                     GameObject.Instantiate(card1, cardPlaces[i].transform.position, Quaternion.identity).tag = "Card1";
                 }
-                else if (rint >= 34 && rint < 67)
+                else if (rint >= 40 && rint < 80)
                 {
                     GameObject.Instantiate(card2, cardPlaces[i].transform.position, Quaternion.identity).tag = "Card2";
                 }
-                else if (rint >= 67 && rint < 88)
+                else if (rint >= 80 && rint < 100)
                 {
                     GameObject.Instantiate(card3, cardPlaces[i].transform.position, Quaternion.identity).tag = "Card3";
                 }
-                else if (rint >= 88 && rint < 100)
-                {
-                    GameObject.Instantiate(card4, cardPlaces[i].transform.position, Quaternion.identity).tag = "Card4";
-                }
+                //else if (rint >= 88 && rint < 100)
+                //{
+                //    GameObject.Instantiate(card4, cardPlaces[i].transform.position, Quaternion.identity).tag = "Card4";
+                //}
                 cardsInHand++;
             }
             return;
