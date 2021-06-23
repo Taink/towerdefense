@@ -10,6 +10,7 @@ TagManager:
   - Card2
   - Card3
   - Card4
+  - HandManager
   layers:
   - Default
   - TransparentFX
