@@ -139,7 +139,7 @@ public class RoundController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            Application.Quit(); 
         }
     }
     public void updateRound()
