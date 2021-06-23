@@ -435,13 +435,13 @@ MonoBehaviour:
     m_Bits: 4294967295
   centerOffsetCompatibility: NaN
   orientation: 1
-  enableRotation: 1
+  enableRotation: 0
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: 0.6
   pickNextWaypointDist: 1
-  endReachedDistance: 0.2
+  endReachedDistance: 0.05
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
