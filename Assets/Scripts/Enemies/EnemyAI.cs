@@ -15,7 +15,7 @@ public class EnemyAI : MonoBehaviour
     // -> pourquoi ne pas le stocker sous une forme de pourcentage au lieu de passer via des nombres?
     //    qqch comme 0.6 pour 60% de r�sistance magique
     [SerializeField]  
-    private float movSpeed = 200f; //vitesse de d�placement
+    private float movSpeed; //vitesse de d�placement
     private int _killReward; //quantit� d'or donn�e � la mort
     private int _damage; //d�gats lorsqu'il sort de la carte
 
