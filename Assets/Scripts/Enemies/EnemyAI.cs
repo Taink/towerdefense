@@ -107,6 +107,15 @@ public class EnemyAI : MonoBehaviour
         slowTime = Time.time;
 
     }
+    public void Update()
+    {
+        if (Mathf.Abs(this.transform.position.x - _target.position.x) < 0.1 && Mathf.Abs(this.transform.position.y - _target.position.y) < 0.1 && Mathf.Abs(this.transform.position.z - _target.position.z) < 0.1)
+        {
+            LivesCounter.remainingLives -= _damage;
+            Destroy(gameObject);
+            Enemies.RemoveEnemy(transform);
+        }
+    }
 
     /* Update is called once per frame
      * v�rifie la position
