@@ -15,6 +15,9 @@ public class HandManager : MonoBehaviour
 
     [SerializeField] private List<GameObject> cardPlaces;
     [SerializeField] private GameObject placementManager;
+
+    private int drawBar = 0;
+    private const int drawBarMax = 100;
     // Start is called before the first frame update
     void Start()
     {
@@ -97,7 +100,15 @@ public class HandManager : MonoBehaviour
         }
     }
 
-
+    public void updateDrawBar(int bonus)
+    {
+        drawBar = drawBar + bonus;
+        if(drawBar >= drawBarMax)
+        {
+            draw1card();
+            drawBar = drawBar - 100;
+        }
+    }
 
     public void piocher()
     {

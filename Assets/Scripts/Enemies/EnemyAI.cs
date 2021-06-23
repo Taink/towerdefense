@@ -16,7 +16,9 @@ public class EnemyAI : MonoBehaviour
     //    qqch comme 0.6 pour 60% de r�sistance magique
     [SerializeField]  
     private float movSpeed; //vitesse de d�placement
+    [SerializeField]
     private int _killReward; //quantit� d'or donn�e � la mort
+    [SerializeField]
     private int _damage; //d�gats lorsqu'il sort de la carte
 
     private readonly Transform _target = Enemies.Target;
@@ -77,7 +79,7 @@ public class EnemyAI : MonoBehaviour
 
     private void die()
     {
-        Enemies.RemoveEnemy(transform);
+        Enemies.enemyKilled(transform, _killReward);
         Destroy(gameObject);
     }
 

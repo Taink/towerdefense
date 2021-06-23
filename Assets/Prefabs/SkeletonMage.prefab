@@ -206,6 +206,8 @@ MonoBehaviour:
   armor: 0
   magicRes: 2
   movSpeed: 0.4
+  _killReward: 20
+  _damage: 2
 --- !u!61 &8759884021318794939
 BoxCollider2D:
   m_ObjectHideFlags: 0

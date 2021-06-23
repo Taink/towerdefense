@@ -28,6 +28,13 @@ public class Enemies : MonoBehaviour
         enemies.Add(enemy);
     }
 
+    public static void enemyKilled(Transform enemy, int reward)
+    {
+        RemoveEnemy(enemy);
+        HandManager handScript = GameObject.FindGameObjectWithTag("HandManager").GetComponent<HandManager>();
+        handScript.updateDrawBar(reward);
+    }
+
     public static void RemoveEnemy(Transform enemy)
     {
         enemies.Remove(enemy);
