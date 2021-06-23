@@ -497,9 +497,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'TD
-
-'
+  m_text: EB
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 367b68fbd86f1814694cff687dbc10fb, type: 2}
   m_sharedMaterial: {fileID: 3068481303206142962, guid: 367b68fbd86f1814694cff687dbc10fb, type: 2}
@@ -877,7 +875,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0}
   m_SizeDelta: {x: -0.000061035, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1527978869
@@ -1230,9 +1228,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'GRAVE MISTAKE
-
-'
+  m_text: PIECE JOINTE SAINSON 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 367b68fbd86f1814694cff687dbc10fb, type: 2}
   m_sharedMaterial: {fileID: 3068481303206142962, guid: 367b68fbd86f1814694cff687dbc10fb, type: 2}
