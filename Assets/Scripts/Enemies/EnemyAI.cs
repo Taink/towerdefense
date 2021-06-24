@@ -38,7 +38,8 @@ public class EnemyAI : MonoBehaviour
         _destinationSetter = GetComponent<AIDestinationSetter>();
         _destinationSetter.target = _target;
         _aiPath = GetComponent<AIPath>();
-        baseSpeed = _aiPath.maxSpeed;
+        _aiPath.maxSpeed = movSpeed;
+        baseSpeed = movSpeed;
         generateEnemy();
         baseSpeed = movSpeed;
     }
@@ -128,9 +129,9 @@ public class EnemyAI : MonoBehaviour
     {
         // checkPos();
         // moveEnemy();
-        if (Time.time - slowTime >= 3)
+        if (Time.time - slowTime >= 3f)
         {
-            movSpeed = baseSpeed;
+            _aiPath.maxSpeed = baseSpeed;
         }
     }
 }

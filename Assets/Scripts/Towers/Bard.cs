@@ -6,7 +6,7 @@ public class Bard : DefenseTowers
 {
     private void Awake()
     {
-        base.init("Barde", "Un barde très joyeux qui joue de la musique du matin au soir", 0, 1, (float)1.5);
+        base.init("Barde", "Un barde très joyeux qui joue de la musique du matin au soir", 0, 1, (float)0.5);
     }
 
     override
