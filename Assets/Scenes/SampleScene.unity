@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8861559740043232973, guid: 0130209113dc1ac448efd36ee210e67b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 45.1
+      value: 70.1
       objectReference: {fileID: 0}
     - target: {fileID: 8861559740143390656, guid: 0130209113dc1ac448efd36ee210e67b, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8861559740143390656, guid: 0130209113dc1ac448efd36ee210e67b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 273.6
+      value: 298.6
       objectReference: {fileID: 0}
     - target: {fileID: 8861559740505022651, guid: 0130209113dc1ac448efd36ee210e67b, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -152,7 +152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8861559740505022651, guid: 0130209113dc1ac448efd36ee210e67b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 159.1
+      value: 184.1
       objectReference: {fileID: 0}
     - target: {fileID: 8861559740805243398, guid: 0130209113dc1ac448efd36ee210e67b, type: 3}
       propertyPath: m_Pivot.x
@@ -272,7 +272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8861559741002766747, guid: 0130209113dc1ac448efd36ee210e67b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 387.7
+      value: 412.7
       objectReference: {fileID: 0}
     - target: {fileID: 8861559741655189405, guid: 0130209113dc1ac448efd36ee210e67b, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -280,7 +280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8861559741655189405, guid: 0130209113dc1ac448efd36ee210e67b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 501.8125
+      value: 526.8125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0130209113dc1ac448efd36ee210e67b, type: 3}
