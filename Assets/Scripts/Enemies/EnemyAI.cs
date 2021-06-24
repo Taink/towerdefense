@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
@@ -97,6 +98,10 @@ public class EnemyAI : MonoBehaviour
             {
                 LivesCounter.remainingLives -= _damage;
                 die();
+                if (LivesCounter.remainingLives <= 0)
+                {
+                    SceneManager.LoadScene("DefeatScene");
+                }
             }
         }
     }
