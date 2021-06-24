@@ -98,10 +98,6 @@ public class EnemyAI : MonoBehaviour
             {
                 LivesCounter.remainingLives -= _damage;
                 die();
-                if (LivesCounter.remainingLives <= 0)
-                {
-                    SceneManager.LoadScene("DefeatScene");
-                }
             }
         }
     }
@@ -123,6 +119,10 @@ public class EnemyAI : MonoBehaviour
             LivesCounter.remainingLives -= _damage;
             Destroy(gameObject);
             Enemies.RemoveEnemy(transform);
+            if (LivesCounter.remainingLives <= 0)
+            {
+                SceneManager.LoadScene("DefeatScene");
+            }
         }
     }
 
