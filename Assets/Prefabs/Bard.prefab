@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 810962279999809996}
   - component: {fileID: 1561826510454547152}
   - component: {fileID: 3982289887062937568}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Bard
   m_TagString: Untagged
   m_Icon: {fileID: 0}

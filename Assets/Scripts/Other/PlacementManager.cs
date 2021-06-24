@@ -103,7 +103,7 @@ public class PlacementManager : MonoBehaviour
                     hoverTilePos = null;
                 }
             }
-            if (Input.GetMouseButtonDown(0) & Time.time - time > 0.1)
+            if (Input.GetMouseButtonDown(0) & Time.time - time > 0.01)
             {
                 placeBuilding();
             }
