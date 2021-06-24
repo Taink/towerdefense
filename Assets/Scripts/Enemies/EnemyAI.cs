@@ -23,6 +23,7 @@ public class EnemyAI : MonoBehaviour
 
     private readonly Transform _target = Enemies.Target;
     private AIDestinationSetter _destinationSetter;
+    private AIPath _aiPath;
 
     private float slowTime;
     private float baseSpeed;
@@ -36,6 +37,8 @@ public class EnemyAI : MonoBehaviour
     {
         _destinationSetter = GetComponent<AIDestinationSetter>();
         _destinationSetter.target = _target;
+        _aiPath = GetComponent<AIPath>();
+        baseSpeed = _aiPath.maxSpeed;
         generateEnemy();
         baseSpeed = movSpeed;
     }
@@ -99,9 +102,9 @@ public class EnemyAI : MonoBehaviour
 
     public void slow()
     {
-        if (movSpeed == baseSpeed)
+        if (_aiPath.maxSpeed == baseSpeed)
         {
-            movSpeed = (float)(movSpeed * 0.6);
+            _aiPath.maxSpeed = (float)(_aiPath.maxSpeed * 0.6);
         }
         
         slowTime = Time.time;
