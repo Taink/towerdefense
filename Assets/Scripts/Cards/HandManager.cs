@@ -95,8 +95,9 @@ public class HandManager : MonoBehaviour
                 //    GameObject.Instantiate(card4, cardPlaces[i].transform.position, Quaternion.identity).tag = "Card4";
                 //}
                 cardsInHand++;
+                return;
             }
-            return;
+            
         }
     }
 
