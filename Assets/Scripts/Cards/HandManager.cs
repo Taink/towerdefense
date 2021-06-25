@@ -19,6 +19,7 @@ public class HandManager : MonoBehaviour
     private int drawBar = 0;
     private const int drawBarMax = 100;
     private float timer;
+    public CardBar cardBar;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +43,7 @@ public class HandManager : MonoBehaviour
         }*/
         timer = Time.time;
         StartCoroutine(draw(MaxCardInHand));
+        cardBar.SetMaxValue(drawBarMax);
     }
 
     IEnumerator draw(int nbCartes)
@@ -106,10 +108,12 @@ public class HandManager : MonoBehaviour
     public void updateDrawBar(int bonus)
     {
         drawBar = drawBar + bonus;
+        cardBar.SetValue(drawBar);
         if(drawBar >= drawBarMax)
         {
             draw1card();
             drawBar = drawBar - 100;
+            cardBar.SetValue(drawBar);
         }
         timer = Time.time;
     }
