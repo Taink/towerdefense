@@ -5,8 +5,8 @@ using UnityEngine.Tilemaps;
 
 public class PlacementManager : MonoBehaviour
 {
-    [SerializeField] private Tilemap tilemap;
-    
+    [SerializeField] private Tilemap terrainTilemap;
+
     private GameObject dummyPlacement;
     public Camera cam;
     private Vector3? hoverTilePos;
@@ -79,6 +79,9 @@ public class PlacementManager : MonoBehaviour
         {
             Destroy(dummyPlacement);
         }
+
+        // var scannedGraph = AstarPath.active.data.gridGraph;
+        // AstarPath.active.Scan(scannedGraph);
     }
 
     public void Update()
@@ -91,11 +94,11 @@ public class PlacementManager : MonoBehaviour
                 var mousePos = getMousePos();
 
                 var tileCoords = new Vector3Int((int) mousePos.x, (int) mousePos.y, 0);
-                var tile = tilemap.GetTile<TerrainTile>(tileCoords);
+                var tile = terrainTilemap.GetTile<TerrainTile>(tileCoords);
 
                 if(tile && !tile.flags.Contains(TerrainData.Restricted))
                 {
-                    hoverTilePos = tileCoords;
+                    hoverTilePos = tileCoords + terrainTilemap.tileAnchor;
                     if (hoverTilePos != null) dummyPlacement.transform.position = (Vector3) hoverTilePos;
                 }
                 else
