@@ -49,7 +49,7 @@ public class RoundController : MonoBehaviour
     {
         compteur = 0;
         power = power + 3;
-        if(round < 5)
+        if(round < 5 & round > 2)
         {
             StartCoroutine(ISpawnEnemies(5, basicEnemy, basicTime));
             compteur += 5;
