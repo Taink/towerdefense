@@ -201,11 +201,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3d9b31ac5592149b58e8c98c430e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 200
   healthbar: {fileID: 1682738749461073807}
   armor: 0
   magicRes: 2
-  movSpeed: 0.4
+  movSpeed: 0.6
   _killReward: 20
   _damage: 2
 --- !u!61 &8759884021318794939

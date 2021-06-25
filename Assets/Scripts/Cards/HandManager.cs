@@ -18,6 +18,7 @@ public class HandManager : MonoBehaviour
 
     private int drawBar = 0;
     private const int drawBarMax = 100;
+    private float timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +40,7 @@ public class HandManager : MonoBehaviour
         {
             Instantiate(card1, cardPlaces[i].transform.position, Quaternion.identity);
         }*/
+        timer = Time.time;
         StartCoroutine(draw(MaxCardInHand));
     }
 
@@ -109,6 +111,7 @@ public class HandManager : MonoBehaviour
             draw1card();
             drawBar = drawBar - 100;
         }
+        timer = Time.time;
     }
 
     public void piocher()
@@ -142,6 +145,10 @@ public class HandManager : MonoBehaviour
                 }
                 
             }
+        }
+        if(Time.time - timer > 2)
+        {
+            updateDrawBar(5);
         }
 
     }

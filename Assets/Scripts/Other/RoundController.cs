@@ -48,7 +48,7 @@ public class RoundController : MonoBehaviour
     private void spawnEnemies()
     {
         compteur = 0;
-        power = power + 3;
+        power = power + 5;
         if(round < 5 & round > 2)
         {
             StartCoroutine(ISpawnEnemies(5, basicEnemy, basicTime));
@@ -56,7 +56,7 @@ public class RoundController : MonoBehaviour
         }
         if (round >= 3 & round < 5)
         {
-            StartCoroutine(ISpawnEnemies((round-2)*2, dogEnemy, dogTime));
+            StartCoroutine(ISpawnEnemies((round)*2, dogEnemy, dogTime));
             compteur++;
         }
         if (round >=5 )
