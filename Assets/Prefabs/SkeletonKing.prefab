@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdce139ce5df871468ee15f8f9c7bd9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1000
+  health: 900
   healthbar: {fileID: 866331482904018522}
   armor: 3
   magicRes: 2
