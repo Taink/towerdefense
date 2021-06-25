@@ -11,6 +11,7 @@ TagManager:
   - Card3
   - Card4
   - HandManager
+  - Wall
   layers:
   - Default
   - TransparentFX

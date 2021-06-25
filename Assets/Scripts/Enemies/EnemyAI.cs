@@ -42,7 +42,6 @@ public class EnemyAI : MonoBehaviour
         _aiPath.maxSpeed = movSpeed;
         baseSpeed = movSpeed;
         generateEnemy();
-        baseSpeed = movSpeed;
     }
 
     //M�thode de g�n�ration : d�fini la premi�re case comme la StartTile, d�finie dans MapGenerator
@@ -104,12 +103,16 @@ public class EnemyAI : MonoBehaviour
 
     public void slow()
     {
-        if (_aiPath.maxSpeed == baseSpeed)
+        if(_aiPath != null)
         {
-            _aiPath.maxSpeed = (float)(_aiPath.maxSpeed * 0.6);
-        }
+            if (_aiPath.maxSpeed == baseSpeed)
+            {
+                _aiPath.maxSpeed = (float)(_aiPath.maxSpeed * 0.65);
+            }
         
-        slowTime = Time.time;
+            slowTime = Time.time;
+        }
+ 
 
     }
     public void Update()
@@ -134,7 +137,7 @@ public class EnemyAI : MonoBehaviour
     {
         // checkPos();
         // moveEnemy();
-        if (Time.time - slowTime >= 3f)
+        if (Time.time - slowTime >= 2)
         {
             _aiPath.maxSpeed = baseSpeed;
         }
