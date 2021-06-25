@@ -60,10 +60,10 @@ public class HandManager : MonoBehaviour
             {
                 GameObject.Instantiate(card3, cardPlaces[i].transform.position, Quaternion.identity).tag = "Card3";
             }
-            /*else if (rint >= 90 && rint < 100)
+            else if (rint >= 90 && rint < 100)
             {
                 GameObject.Instantiate(card4, cardPlaces[i].transform.position, Quaternion.identity).tag = "Card4";
-            }*/
+            }
             cardsInHand++;
         }
     }
